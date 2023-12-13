@@ -1,6 +1,8 @@
 import Select from "react-select";
+import { useUsersList } from "./context/UsersListContext";
 
 const Controls = () => {
+  const { sortBy, sortDirection } = useUsersList()
   const fieldOptions = [
     { label: "Name", value: "name" },
     { label: "Company", value: "company" },
@@ -17,7 +19,7 @@ const Controls = () => {
         <label htmlFor="sort-field" className="label">
           Sort Field
         </label>
-        <Select options={fieldOptions} inputId="sort-field" className="input" />
+        <Select options={fieldOptions} inputId="sort-field" className="input" onChange={sortBy} />
       </div>
       <div className="form-group group">
         <label htmlFor="sort-direction" className="label">
@@ -27,6 +29,7 @@ const Controls = () => {
           options={directionOptions}
           inputId="sort-direction"
           className="input"
+          onChange={sortDirection}
         />
       </div>
     </div>
