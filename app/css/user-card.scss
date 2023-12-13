@@ -1,6 +1,7 @@
 .user-card {
   display: flex;
   flex-flow: row nowrap;
+  overflow: hidden;
 
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
@@ -19,11 +20,12 @@
   }
 
   > .info {
-    flex: 2 0 66%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-flow: column nowrap;
+    overflow: hidden;
   }
 
   > .body + .info {
@@ -37,5 +39,12 @@
 
   > .info > .company {
     color: #253858;
+  }
+
+  > .info > .company,
+  > .info > .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
