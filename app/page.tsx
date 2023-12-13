@@ -1,6 +1,7 @@
-import styles from "./page.module.css";
+import styles from './page.module.css'
 
-import Gallery from "./gallery";
+import Gallery from './gallery'
+import { Quote } from './quote'
 
 export default async function Home() {
   const result = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -17,7 +18,8 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
+      <Quote />
       <Gallery users={users} />
     </main>
-  );
+  )
 }

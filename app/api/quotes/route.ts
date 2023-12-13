@@ -1,4 +1,9 @@
-export const GET = async () => {
+import { NextRequest } from 'next/server'
+
+export const GET = async (req: NextRequest) => {
+  // Hacky way to make GET endpoint not stale
+  console.log(req?.nextUrl?.searchParams?.get('foo'))
+
   const result = await fetch(
     'https://api.api-ninjas.com/v1/quotes?category=happiness',
     {
