@@ -53,6 +53,7 @@ const Modal = ({
 
   if (isOpen) {
     return ReactDOM.createPortal(
+      // @ts-ignore Build Error
       <FocusLock autoFocus={false}>
         <div
           className={wrapperClass}

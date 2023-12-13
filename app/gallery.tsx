@@ -13,12 +13,10 @@ import Controls from "./controls";
 import Modal from "./modal";
 
 import { User } from "./types/user";
+import { useUsersList } from "./context/UsersListContext";
 
-export type GalleryProps = {
-  users: User[];
-};
-const Gallery = ({ users }: GalleryProps) => {
-  const [usersList, setUsersList] = useState(users);
+const Gallery = () => {
+  const { usersList } = useUsersList()
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
