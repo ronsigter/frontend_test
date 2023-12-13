@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async (req: NextRequest) => {
   // Hacky way to make GET endpoint not stale
@@ -14,12 +14,12 @@ export const GET = async (req: NextRequest) => {
   )
 
   if (!result.ok || result.status !== 200) {
-    return Response.error()
+    return NextResponse.error()
   }
 
   const quote = await result.json()
 
-  if (quote?.length > 0) return Response.json(quote[0])
+  if (quote?.length > 0) return NextResponse.json(quote[0])
 
-  return Response.json({})
+  return NextResponse.json({})
 }
